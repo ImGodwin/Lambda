@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.function.Predicate;
 
 public class Main {
 
@@ -38,7 +39,20 @@ public class Main {
         Product[] productsArr = {product1, product2, product3, product4, product5, product6,
                 product7, product8, product9, product10};
 
+
         List<Product> eachProduct = new ArrayList<>(Arrays.asList(productsArr));
+
+        List<Product> onlyBooks = eachProduct.stream().filter(i -> i.getCategory().equals("Books") && i.getPrice() > 100).toList();
+        onlyBooks.forEach(System.out::println);
+
+
+
+
+        //System.out.println(eachProduct);
+
+
+
+        //System.out.println(booksCategory);
 
         //System.out.println(eachProduct);
 
