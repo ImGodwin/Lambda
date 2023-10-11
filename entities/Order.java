@@ -15,8 +15,8 @@ public class Order {
                  List<Product> products, Customer customer) {
         this.id = id;
         this.status = status;
-        this.orderDate = LocalDate.now();
-        this.deliveryDate = LocalDate.of(2023, 11, 1);
+        this.orderDate = this.getOrderDate();
+        this.deliveryDate = this.getDeliveryDate();
         this.products = products;
         this.customer = customer;
     }
