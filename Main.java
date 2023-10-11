@@ -35,7 +35,7 @@ public class Main {
                 randomNumber.nextInt(50, 200));
         Product product7 = new Product(randomNumber.nextInt(0, 100), "Christian", "Books",
                 randomNumber.nextInt(50, 200));
-        Product product8 = new Product(randomNumber.nextInt(0, 100), "Tech", "Babies",
+        Product product8 = new Product(randomNumber.nextInt(0, 100), "Tech", "Baby",
                 randomNumber.nextInt(50, 200));
         Product product9 = new Product(randomNumber.nextInt(0, 100), "AI", "Boys",
                 randomNumber.nextInt(50, 200));
@@ -47,8 +47,8 @@ public class Main {
 
 
         System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<1<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
-        LocalDate date = LocalDate.of(2023, Month.OCTOBER, 10);
-        System.out.println(date);
+        LocalDate date = LocalDate.of(2023, Month.OCTOBER, 11);
+        //System.out.println(date);
 
         List<Product> eachProduct = new ArrayList<>(Arrays.asList(productsArr));
         List<Product> onlyBooks = eachProduct.stream().filter(book -> book.getCategory().equals("Books") && book.getPrice() > 100).toList();
@@ -73,6 +73,16 @@ public class Main {
         orders.add(order5);
         orders.add(order6);
         orders.add(order7);
+        //System.out.println(orders);
+
+        Predicate<Order> equalsBabies = str -> str.getProducts().stream().anyMatch(el -> el.getCategory().equals("Baby"));
+
+        List<Order> completeOrder = orders.stream().filter(equalsBabies).toList();
+        completeOrder.forEach(System.out::println);
+
+        System.out.println("<<<<<<<<<<<<<<<<<<<<<<3<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+
+        List<Product> onlyBooks = eachProduct.stream().filter(book -> book.getCategory().equals("Books") && book.getPrice() > 100).toList();
 
 
 
